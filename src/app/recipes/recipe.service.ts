@@ -5,7 +5,7 @@ import {Ingredient} from "../shared/ingredient";
 @Injectable()
 export class RecipeService {
 
-  private recipes: Recipe[]=[
+  private recipes: Recipe[] = [
     new Recipe('Schnitzel', 'Very tasty', 'https://static.pexels.com/photos/70497/pexels-photo-70497.jpeg', [
         new Ingredient('French Fries',2),
         new Ingredient('Pork Meat',1),
@@ -18,4 +18,10 @@ export class RecipeService {
     return this.recipes;
   }
 
+  getRecipe(id: number){
+    return this.recipes[id];
+  }
+  deleteRecipe(recipe: Recipe){
+    this.recipes.splice(this.recipes.indexOf(recipe), 1);
+  }
 }
